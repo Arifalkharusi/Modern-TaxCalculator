@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./MainTax.module.css";
 
 const MainTax = (props) => {
   const displayOverlay = (data) => {
@@ -61,34 +60,45 @@ const MainTax = (props) => {
     finalData.taxDue > 0 ? finalData.taxDue.toLocaleString("en-GB") : 0;
 
   return (
-    <div className={style.container}>
+    <div className="flex flex-col gap-4 max-w-2xl w-full p-5 bg-white shadow-md">
       <h1>Estimated driving income per year</h1>
-      <div className={style.income} onClick={incomeHandler}>
-        <h1>£{income}</h1>
-        <h2>Edit</h2>
+      <div className="flex items-center gap-3" onClick={incomeHandler}>
+        <h1 className="text-xl sm:text-lg">£{income}</h1>
+        <h2 className="text-base font-normal text-blue-600 underline cursor-pointer">
+          Edit
+        </h2>
       </div>
-      <div className={style.taxable}>
-        <h1>Taxable income</h1>
-        <h1>£{taxableIncome}</h1>
+      <div className="flex items-center justify-between border-b-2 border-black py-3">
+        <h1 className="text-xl">Taxable income</h1>
+        <h1 className="text-xl">£{taxableIncome}</h1>
       </div>
-      <div className={style.deductions}>
-        <h1>Tax deductions</h1>
-        <h1>£{taxDeductions}</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-base font-normal">Tax deductions</h1>
+        <h1 className="text-base font-normal">£{taxDeductions}</h1>
       </div>
-      <div className={style.add}>
-        <p onClick={millageHandler}>
+      <div className="flex flex-col gap-5">
+        <p
+          className="flex justify-between items-center text-blue-600 text-sm cursor-pointer"
+          onClick={millageHandler}
+        >
           + Add millage <span>£{addMillilage}</span>
         </p>
-        <p onClick={phoneCostHandler}>
+        <p
+          className="flex justify-between items-center text-blue-600 text-sm cursor-pointer"
+          onClick={phoneCostHandler}
+        >
           + Add phone & interent costs <span>£{addPhoneCost}</span>
         </p>
-        <p onClick={otherExpensesHandler}>
+        <p
+          className="flex justify-between items-center text-blue-600 text-sm cursor-pointer"
+          onClick={otherExpensesHandler}
+        >
           + Add other expenses <span>£{otherExpenses}</span>
         </p>
       </div>
-      <div className={style.taxdue}>
-        <h1>Estimated taxes due</h1>
-        <h1>£{taxDue}</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-xl font-normal">Estimated taxes due</h1>
+        <h1 className="text-xl font-normal">£{taxDue}</h1>
       </div>
     </div>
   );

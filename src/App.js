@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import MainTax from "./Components/MainTax/MainTax";
-import style from "./App.module.css";
-import Overlay from "./Components/Overlay/Overlay";
+import MainTax from "./Components/MainTax";
+import Overlay from "./Components/Overlay";
 
 const App = () => {
   const [overlayText, setOverlayText] = useState({});
@@ -67,7 +66,7 @@ const App = () => {
   };
 
   return (
-    <div className={style.container}>
+    <div className="flex gap-3">
       <MainTax
         onOpen={openHandler}
         overObj={overMain}
